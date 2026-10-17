@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CloudBox - AWS S3 Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            ☁️ CloudBox
+        </div>
+
+        <div class="service-name">
+            AWS S3 Simulator
+        </div>
+    </header>
+
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <h1>My Cloud Storage</h1>
+            <p>
+                Simulated Amazon S3 bucket for storing and managing files.
+            </p>
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+    <div class="stat-card">
+        <div class="stat-icon">📁</div>
+        <div>
+            <h3 id="totalFiles">0</h3>
+            <p>Total Files</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">💾</div>
+        <div>
+            <h3 id="totalSize">0 KB</h3>
+            <p>Storage Used</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">☁️</div>
+        <div>
+            <h3 id="storagePercent">0%</h3>
+            <p>Storage Usage</p>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">🟢</div>
+        <div>
+            <h3 id="connectionStatus">Connected</h3>
+            <p>Cloud Status</p>
+        </div>
+    </div>
+
+</section>
+
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+
+            <input
+                type="file"
+                id="fileInput"
+                multiple
+                hidden
+            >
+
+            <button
+                class="upload-btn"
+                onclick="document.getElementById('fileInput').click()"
+            >
+                ☁️ Upload Files
+            </button>
+
+            <p>
+                Select one or more files to upload to your simulated S3 bucket.
+            </p>
+            <div id="statusMessage" class="status-message"></div>
+
+        </section>
+
+
+        <!-- Search and Filter -->
+        <section class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search files..."
+            >
+
+            <select id="filterSelect">
+
+                <option value="all">All Files</option>
+                <option value="image">Images</option>
+                <option value="document">Documents</option>
+                <option value="video">Videos</option>
+                <option value="other">Other</option>
+
+            </select>
+
+        </section>
+
+
+        <!-- Files Section -->
+        <section class="files-section">
+
+            <div class="section-title">
+                <h2>My Bucket</h2>
+
+                <span id="fileCount">
+                    0 files
+                </span>
+            </div>
+
+
+            <!-- File Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>File Name</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Date Added</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="fileTableBody">
+
+                        <!-- Files will be added here using JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- Empty Message -->
+
+                <div
+                    id="emptyMessage"
+                    class="empty-message"
+                >
+
+                    <div class="empty-icon">
+                        📂
+                    </div>
+
+                    <h3>No files yet</h3>
+
+                    <p>
+                        Upload your first file to the simulated S3 bucket.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Storage Analytics -->
+        <section class="analytics">
+
+            <h2>📊 Storage Analytics</h2>
+
+            <div class="analytics-container">
+
+                <div class="analytics-card">
+
+                    <h3>Storage Usage</h3>
+
+                    <div class="progress-container">
+
+                        <div
+                            id="progressBar"
+                            class="progress-bar"
+                        ></div>
+
+                    </div>
+
+                    <p id="storageText">
+                        0 KB / 10 MB
+                    </p>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <h3>File Types</h3>
+
+                    <div id="fileTypeStats">
+
+                        <p>📷 Images: 0</p>
+                        <p>📄 Documents: 0</p>
+                        <p>🎬 Videos: 0</p>
+                        <p>📦 Other: 0</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            CloudBox — AWS S3 Service Simulation
+        </p>
+
+        <p>
+            Developed for Cloud Architecture Design DA-3
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
